@@ -2,9 +2,14 @@
 import os
 import requests
 import telebot
-from selenium import webdriver
+
+from seleniumbase import Driver
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options  
+
+
+
 import time
 BOT_TOKEN='6156196437:AAHziq9zc67scoa5sLLNb4Ck2PZg63JlBtM'
 #BOT_TOKEN = os.environ.get('BOT_TOKEN')
@@ -53,9 +58,9 @@ def duwcheck(message):
         return bot.send_message(message.chat.id, "Sorry, you do not have rights")
     bot.send_message(message.chat.id, "Thank you, sir. 1 minute, please")
 
-    chrome_options = Options()  
-    chrome_options.add_argument("--headless") 
-    web = webdriver.Chrome(chrome_options=chrome_options)
+    #chrome_options = Options()  
+    #chrome_options.add_argument("--headless") 
+    web = Driver(browser="chrome", headless=True)
     bot.send_message(message.chat.id, "We are opening DUW page")
     web.get('https://pio-przybysz.duw.pl/login')
 
