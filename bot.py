@@ -180,13 +180,13 @@ def Order_placement(shipping_adresse,Product,amount):
         bot.send_message(shipping_adresse.chat.id, "Thank you for your oder, it was successfully placed")
 
 #Creating Database
-connection = create_connection("telebot1-388021:europe-central2:products", "root", "")
+connection = create_connection("telebot1-388021:europe-central2:products", "dim_pigulsky", "")
 
 
 create_database_query = "CREATE DATABASE IF NOT EXISTS products"
 create_database(connection, create_database_query)
 
-connection = create_connection_todb("telebot1-388021:europe-central2:products", "root", "", "products")
+connection = create_connection_todb("telebot1-388021:europe-central2:products", "dim_pigulsky", "", "products")
 
 create_products_list_table = """
 CREATE TABLE IF NOT EXISTS products_list (
